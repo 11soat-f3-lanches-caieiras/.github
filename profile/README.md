@@ -13,20 +13,11 @@
 
 ### Repositórios
 
-- **Repositório Infra-as-Code** - lncr-iac  
-  https://github.com/11soat-f3-lanches-caieiras/lncr-iac
-
-- **Repositório de Banco de Dados** - lncr-database  
-  https://github.com/11soat-f3-lanches-caieiras/lncr-database
-
-- **Repositório de Function** - lncr-custom-authorizer  
-  https://github.com/11soat-f3-lanches-caieiras/lncr-custom-authorizer
-
-- **Repositório Aplicação** - lncr-app  
-  https://github.com/11soat-f3-lanches-caieiras/lncr-app
-
-- **Repositório Core** - lncr-core  
-  https://github.com/11soat-f3-lanches-caieiras/lncr-core
+- **Repositório Infra-as-Code** - [lncr-iac](https://github.com/11soat-f3-lanches-caieiras/lncr-iac)  
+- **Repositório de Banco de Dados** -[ lncr-database](https://github.com/11soat-f3-lanches-caieiras/lncr-database)  
+- **Repositório de Function** - [lncr-custom-authorizer  ](https://github.com/11soat-f3-lanches-caieiras/lncr-custom-authorizer)
+- **Repositório Aplicação** - [lncr-app](https://github.com/11soat-f3-lanches-caieiras/https://github.com/11soat-f3-lanches-caieiras/lncr-app)
+- **Repositório Core** - [lncr-core](https://github.com/11soat-f3-lanches-caieiras/lncr-core)  
 
 ### Implementação do API Gateway + Autenticação e JWT
 
