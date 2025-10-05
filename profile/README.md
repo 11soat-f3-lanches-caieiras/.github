@@ -188,27 +188,33 @@ Tecnologia: Terraform
 
 ```mermaid
 sequenceDiagram
-    participant Dev as Developer
-    participant IAC as lncr-iac
-    participant DB as lncr-database  
-    participant AUTH as lncr-custom-authorizer
-    participant APP as lncr-app
-    participant FINAL as lncr-iac (final)
+    participant lncr-iac as lncr-iac
+    participant DB as lncr-database
+    participant lncr-custom-authorizer
+    participant lncr-app
+    participant aws as AWS Cloud
+    
 
-    Dev->>IAC: Push para develop
-    IAC->>IAC: Deploy base infrastructure
-    IAC->>DB: repository_dispatch
-    IAC->>AUTH: repository_dispatch
-    IAC->>APP: repository_dispatch
-    
+    autonumber
+    lncr-iac->>lncr-iac: Workflow Dispatcher
+    Note over lncr-iac: Bootstrap Workflow<br>Aprovisionamento VPC, Codebuilds
+
+    lncr-iac->>lncr-iac: Push<br>PullRequest<br>Workflow Dispatcher<br>
+    Note over lncr-iac: Infra Base WorkFlow<br>Aprovisionamento dos recusros de infraestrutura na AWS
+     
     par Parallel Execution
-        DB->>DB: Deploy database
-        AUTH->>AUTH: Build & deploy Lambda
-        APP->>APP: Build Docker & deploy K8s
+        lncr-iac->>DB: Repository Dispatcher
+        DB->>aws: Deploy do Banco de Dados na AWS
+        lncr-iac->>lncr-custom-authorizer:Repository Dispatcher
+        lncr-custom-authorizer->>aws: Deploy da Lambda na AWS
+        lncr-iac->>lncr-app:Repository Dispatcher
+        lncr-app->>aws: Deploy da lncr-app no Cluster EKS na AWS
     end
+    lncr-app->>lncr-iac: Repository Dispatch
+    note over lncr-iac: Infra Complete WorkFlow<br>Configuração do API Gateway com NLB e Lambda Authorizer
+    lncr-iac->>aws: Configurar API Gateway
+    note over aws: Configuração completa<br>API Gateway + Lambda Authorizer + NLB + EKS
     
-    APP->>FINAL: repository_dispatch
-    FINAL->>FINAL: Configure API Gateway
 ```
 ---
 
