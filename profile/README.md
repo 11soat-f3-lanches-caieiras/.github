@@ -5,18 +5,28 @@
 - **Gustavo Silva** (361477)
 - **Tito Parizotto** (361184)
 
-## Vídeo de Demonstração
+## Introdução
+Este projeto é a entrega do Tech Challange Fase 3 - 11SOAT na qual evoluímos o projeto da Lanches Caieiras (Fase 2) com as seguintes implementações:
+- Utilização de Cloud AWS para execução da aplicação
+- Integração entre API Gateway + Lambda Function + NLB + EKS
+- Serviço de geração de Oatuh Token 2.0 (JWT) 
+
+---
+
+## Entregáveis
+
+### Vídeo de Demonstração
 
 [Em breve - Link do vídeo de demonstração será adicionado aqui]
 
-## Entregáveis
+---
 
 ### Repositórios
 
 - **Repositório Infra-as-Code** - [lncr-iac](https://github.com/11soat-f3-lanches-caieiras/lncr-iac)  
 - **Repositório de Banco de Dados** -[ lncr-database](https://github.com/11soat-f3-lanches-caieiras/lncr-database)  
 - **Repositório de Function** - [lncr-custom-authorizer  ](https://github.com/11soat-f3-lanches-caieiras/lncr-custom-authorizer)
-- **Repositório Aplicação** - [lncr-app](https://github.com/11soat-f3-lanches-caieiras/https://github.com/11soat-f3-lanches-caieiras/lncr-app)
+- **Repositório Aplicação** - [lncr-app](https://github.com/11soat-f3-lanches-caieiras/lncr-app)
 - **Repositório Core** - [lncr-core](https://github.com/11soat-f3-lanches-caieiras/lncr-core)  
 
 ### Implementação do API Gateway + Autenticação e JWT
@@ -67,6 +77,7 @@ A arquitetura completa garante que:
 3. Requisições válidas são roteadas para a aplicação via NLB/EKS
 4. A aplicação fornece endpoints para obtenção de novos tokens JWT
 
+---
 ### Deploy Automatizado
 
 #### Proteção de Branch Master
@@ -84,7 +95,6 @@ O projeto utiliza uma estratégia dupla para gerenciamento de credenciais e conf
 
 **AWS Secrets Manager:**
 - Armazenamento seguro de chaves JWT e configurações de infraestrutura
-- Rotação automática de credenciais
 - Integração nativa com serviços AWS (Lambda, EKS)
 - Exemplo: `LNCR_AWS_SECRET_NAME` para chaves de validação JWT
 
@@ -200,6 +210,7 @@ sequenceDiagram
     APP->>FINAL: repository_dispatch
     FINAL->>FINAL: Configure API Gateway
 ```
+---
 
 #### Tecnologias Utilizadas
 
@@ -228,3 +239,19 @@ sequenceDiagram
 - Integração com secrets do Kubernetes
 
 O pipeline completo garante deploy seguro, rastreável e automatizado de toda a infraestrutura e aplicação, com aprovações manuais em pontos críticos e rollback automático em caso de problemas.
+---
+
+### Documentação do banco de Dados
+
+#### Escolha de tecnologia
+
+Escolhemos utilizar o Postgres pelos seguintes motivos:
+- Requisitos de funcionais e características do negócios nos levam a escolher um banco relacional
+- Ser uma tecnologia consolidada de mercado
+- Suporte do serviço RDS da AWS com engine de Postgres
+- Facilidade de implementação de ORM com Spring Framework (nativo)
+
+#### Documentação do Banco Dados
+- Acessar repositório [lncr-database](https://github.com/11soat-f3-lanches-caieiras/lncr-database?tab=readme-ov-file#-entidades-principais)
+
+---
