@@ -197,10 +197,10 @@ sequenceDiagram
 
     autonumber
     lncr-iac->>aws: Workflow Dispatcher
-    Note over lncr-iac: Bootstrap Workflow<br>Aprovisionamento VPC, Codebuilds
+    Note over lncr-iac,aws: Bootstrap Workflow<br>Aprovisionamento VPC, Codebuilds
 
     lncr-iac->>aws: Push<br>PullRequest<br>Workflow Dispatcher<br>
-    Note over lncr-iac: Infra Base WorkFlow<br>Aprovisionamento dos recusros de infraestrutura na AWS
+    Note over lncr-iac,aws: Infra Base WorkFlow<br>Aprovisionamento dos recusros de infraestrutura na AWS
      
     par Parallel Execution
         lncr-iac->>DB: Repository Dispatcher
