@@ -17,7 +17,7 @@ Este projeto é a entrega do Tech Challange Fase 3 - 11SOAT na qual evoluímos o
 
 ### Vídeo de Demonstração
 
-[Em breve - Link do vídeo de demonstração será adicionado aqui]
+[Fase 3 - Tech Challange - 11 SOAT](https://www.youtube.com/watch?v=Uf-40NZVA10)
 
 ---
 
